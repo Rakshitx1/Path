@@ -21,33 +21,19 @@ double distance(Point A, Point B) {
 }
 
 void findIntersections(Point A, Point B, Crater C, Point& intersection1, Point& intersection2) {
-    double dx = B.x - A.x;
-    double dy = B.y - A.y;
-    double dr = sqrt(dx * dx + dy * dy);
-    double D = A.x * B.y - B.x * A.y;
-
-    double discriminant = C.radius * C.radius * dr * dr - D * D;
-
-    if (discriminant < 0) {
-        // No intersection
+    double d1 = distance(A, C.center);
+    double d2 = distance(B, C.center);
+    if(d1 < C.radius && d2 < C.radius) {
         intersection1 = intersection2 = Point(std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN());
-    } else {
-        double sign_dy = (dy < 0) ? -1 : 1;
-
-        // Calculate x coordinates of intersections
-        double x1 = (D * dy - sign_dy * dx * sqrt(discriminant)) / (dr * dr);
-        double x2 = (D * dy + sign_dy * dx * sqrt(discriminant)) / (dr * dr);
-
-        double sign_dx = (dx < 0) ? -1 : 1;
-
-        // Calculate y coordinates of intersections
-        double y1 = (-D * dx - abs(dy) * sqrt(discriminant)) / (dr * dr);
-        double y2 = (-D * dx + abs(dy) * sqrt(discriminant)) / (dr * dr);
-
-        // Set intersection points based on the center of the crater
-        intersection1 = Point(C.center.x + x1, C.center.y + y1);
-        intersection2 = Point(C.center.x + x2, C.center.y + y2);
+        return;
     }
+    double d3 = abs((B.x - A.x) * (A.y - C.center.y) - (A.x - C.center.x) * (B.y - A.y)) / sqrt(pow(B.x - A.x, 2) + pow(B.y - A.y, 2));
+    if(d3 > C.radius) {
+        intersection1 = intersection2 = Point(std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN());
+        return;
+    }
+
+    
 }
 
 double angleBetweenVectors(Point A, Point B, Point C) {

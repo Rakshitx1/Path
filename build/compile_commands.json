@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/rakshit/Desktop/path/build",
+  "command": "/usr/bin/g++    -g   -o CMakeFiles/path_plan.dir/src/main.cpp.o -c /home/rakshit/Desktop/path/src/main.cpp",
+  "file": "/home/rakshit/Desktop/path/src/main.cpp"
+}
+]

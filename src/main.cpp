@@ -27,14 +27,6 @@ double findShortestPath(const Point& A, const Point& B, const Crater& c) {
 
     // Calculate the angle between the two intersection Points and the center of the Crater
     double angle = angleBetweenVectors(intersection1, c.center, intersection2);
-    cout << angle << endl;
-    if (angle < 0)
-    {
-        angle = 2 * M_PI + angle;
-    }
-    if(angle > M_PI) {
-        angle = 2 * M_PI - angle;
-    }
     
     // Calculate the additional cost due to the circular path
     double circularPathCost = c.radius * angle;

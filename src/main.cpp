@@ -41,7 +41,7 @@ double findShortestPath(const Point& A, const Point& B, const Crater& c) {
 int main() {
     Point A(0, 0);
     Point B(10, 0);
-    Crater C(Point(5, 5), 4);
+    Crater C(Point(1, 5), 7);
 
     double shortestPathCost = findShortestPath(A, B, C);
 

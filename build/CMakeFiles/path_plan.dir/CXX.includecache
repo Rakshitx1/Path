@@ -6,23 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/home/rakshit/Desktop/path/src/Crater.h
+/home/rakshit/Desktop/Path/src/Crater.h
 Geometry.h
-/home/rakshit/Desktop/path/src/Geometry.h
+/home/rakshit/Desktop/Path/src/Geometry.h
 
-/home/rakshit/Desktop/path/src/Geometry.h
+/home/rakshit/Desktop/Path/src/Geometry.h
 cmath
 -
 Plane.h
-/home/rakshit/Desktop/path/src/Plane.h
+/home/rakshit/Desktop/Path/src/Plane.h
 Crater.h
-/home/rakshit/Desktop/path/src/Crater.h
+/home/rakshit/Desktop/Path/src/Crater.h
 
-/home/rakshit/Desktop/path/src/Plane.h
+/home/rakshit/Desktop/Path/src/Plane.h
 cmath
 -
 
-/home/rakshit/Desktop/path/src/main.cpp
+/home/rakshit/Desktop/Path/src/main.cpp
 iostream
 -
 cmath
@@ -30,5 +30,5 @@ cmath
 limits
 -
 Geometry.h
-/home/rakshit/Desktop/path/src/Geometry.h
+/home/rakshit/Desktop/Path/src/Geometry.h
 

@@ -48,8 +48,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/rakshit/Desktop/path/build",
-		"source" : "/home/rakshit/Desktop/path"
+		"build" : "/home/rakshit/Desktop/Path/build",
+		"source" : "/home/rakshit/Desktop/Path"
 	},
 	"version" : 
 	{

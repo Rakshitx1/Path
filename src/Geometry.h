@@ -4,16 +4,14 @@
 #define GEOMETRY_H
 
 #include <cmath>
+#include <algorithm>
+#include <tuple>
 #include "Plane.h"
 #include "Crater.h"
 
 void PointSwitch(Point &A, Point &B) {
-    A.x = A.x + B.x;
-    B.x = A.x - B.x;
-    A.x = A.x - B.x;
-    A.y = A.y + B.y;
-    B.y = A.y - B.y;
-    A.y = A.y - B.y;
+    std::swap(A.x, B.x);
+    std::swap(A.y, B.y);
 }
 
 double dotProduct(Point A, Point B) {
@@ -74,15 +72,18 @@ void findIntersections(Point A, Point B, Crater C, Point& intersection1, Point& 
     }
 }
 
-double angleBetweenVectors(Point A, Point B, Point C) {
+std::tuple<double, int> angleBetweenVectors(Point A, Point B, Point C) {
     Point AB = {B.x - A.x, B.y - A.y};
     Point BC = {C.x - B.x, C.y - B.y};
+    Point AC = {C.x - A.x, C.y - A.y};
 
     double dot = dotProduct(AB, BC);
     double magAB = magnitude(AB);
     double magBC = magnitude(BC);
 
-    return M_PI - acos(dot / (magAB * magBC));
+    double Cross = AC.x * BC.y - AC.y * BC.x;
+
+    return {M_PI - std::acos(dot / (magAB * magBC)) * 180 / M_PI, Cross > 0 ? 0 : 1};
 }
 
 #endif // GEOMETRY_H

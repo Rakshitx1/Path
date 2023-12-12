@@ -5,11 +5,6 @@
 
 using namespace std;
 
-// Function to calculate the cost between two Points
-double calculateCost(const Point& a, const Point& b) {
-    return distance(a, b);
-}
-
 // Function to find the shortest path avoiding the Crater
 double findShortestPath(const Point& A, const Point& B, const Crater& c) {
     Point intersection1, intersection2;
@@ -18,12 +13,12 @@ double findShortestPath(const Point& A, const Point& B, const Crater& c) {
     findIntersections(A, B, c, intersection1, intersection2);
 
     if(isnan(intersection1.x) || isnan(intersection1.y) || isnan(intersection2.x) || isnan(intersection2.y)) {
-        return calculateCost(A, B);
+        return distance(A, B);
     }
 
     // Calculate distances
-    double distanceStartToIntersect1 = calculateCost(A, intersection1);
-    double distanceIntersect2ToEnd = calculateCost(intersection2, B);
+    double distanceStartToIntersect1 = distance(A, intersection1);
+    double distanceIntersect2ToEnd = distance(intersection2, B);
 
     // Calculate the angle between the two intersection Points and the center of the Crater
     double angle = angleBetweenVectors(intersection1, c.center, intersection2);
@@ -46,7 +41,7 @@ double findShortestPath(const Point& A, const Point& B, const Crater& c) {
 int main() {
     Point A(0, 0);
     Point B(10, 0);
-    Crater C(Point(5, 5), 7);
+    Crater C(Point(5, 5), 4);
 
     double shortestPathCost = findShortestPath(A, B, C);
 

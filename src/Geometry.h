@@ -31,7 +31,7 @@ double distance(Point A, Point B) {
 void findIntersections(Point A, Point B, Crater C, Point& intersection1, Point& intersection2) {
     double d1 = distance(A, C.center);
     double d2 = distance(B, C.center);
-    double d3 = 0;
+    double d3 = 0; // distance b/w center and line segment -- yet to be calculated
     if(d1 <= C.radius || d2 <= C.radius || d3 > C.radius){
         return;
     }
@@ -83,6 +83,22 @@ double angleBetweenVectors(Point A, Point B, Point C) {
     double magBC = magnitude(BC);
 
     return M_PI - acos(dot / (magAB * magBC));
+}
+
+int directionOfRotation (Point A, Point B, Point C){
+    Point AB = {B.x - A.x, B.y - A.y};
+    Point AC = {C.x - A.x, C.y - A.y};
+    double cross = AC.x * AB.y - AC.y * AB.x;
+    if(cross > 0){
+        return 1;
+    }
+    else if(cross < 0){
+        return -1;
+    }
+    else{
+        return 0;
+    }
+
 }
 
 #endif // GEOMETRY_H

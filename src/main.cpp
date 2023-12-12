@@ -13,6 +13,7 @@ double findShortestPath(const Point& A, const Point& B, const Crater& c) {
     findIntersections(A, B, c, intersection1, intersection2);
 
     if(isnan(intersection1.x) || isnan(intersection1.y) || isnan(intersection2.x) || isnan(intersection2.y)) {
+        cerr << "No Intersection" << endl;
         return distance(A, B);
     }
 
@@ -41,7 +42,7 @@ double findShortestPath(const Point& A, const Point& B, const Crater& c) {
 int main() {
     Point A(0, 0);
     Point B(10, 0);
-    Crater C(Point(1, 5), 7);
+    Crater C(Point(1, 5), 4);
 
     double shortestPathCost = findShortestPath(A, B, C);
 

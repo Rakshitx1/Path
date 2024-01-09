@@ -1,9 +1,8 @@
 // crater.h
 
-#ifndef CRATER_H
-#define CRATER_H
+#pragma once
 
-#include "Geometry.h"
+#include "Plane.hpp"
 
 
 class Crater {
@@ -18,5 +17,3 @@ public:
         return distance_squared <= radius * radius;
     }
 };
-
-#endif // CRATER_H

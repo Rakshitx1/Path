@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <limits>
-#include "Geometry.h"
+#include "Geometry.hpp"
 
 using namespace std;
 
@@ -49,7 +49,10 @@ double findShortestPath(const Point& A, const Point& B, const Crater& c) {
 int main() {
     Point A(0, 0);
     Point B(10, 0);
-    Crater C(Point(5, 5), 7);
+    Crater C(Point(3, -4), 4.5);
+    // Crater D(Point(6, 6), 3);
+
+
 
     double shortestPathCost = findShortestPath(A, B, C);
 

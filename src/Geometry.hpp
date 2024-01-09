@@ -1,19 +1,14 @@
 // geometry.h
 
-#ifndef GEOMETRY_H
-#define GEOMETRY_H
+#pragma once
 
 #include <cmath>
-#include "Plane.h"
-#include "Crater.h"
+#include "Plane.hpp"
+#include "Crater.hpp"
 
 void PointSwitch(Point &A, Point &B) {
-    A.x = A.x + B.x;
-    B.x = A.x - B.x;
-    A.x = A.x - B.x;
-    A.y = A.y + B.y;
-    B.y = A.y - B.y;
-    A.y = A.y - B.y;
+    std::swap(A.x, B.x);
+    std::swap(A.y, B.y);
 }
 
 double dotProduct(Point A, Point B) {
@@ -101,4 +96,3 @@ int directionOfRotation (Point A, Point B, Point C){
 
 }
 
-#endif // GEOMETRY_H

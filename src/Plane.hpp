@@ -1,7 +1,6 @@
 // plane.h
 
-#ifndef PLANE_H
-#define PLANE_H
+#pragma once
 
 #include <cmath>
 
@@ -14,4 +13,3 @@ public:
     Point(double x, double y) : x(x), y(y) {}
 };
 
-#endif // PLANE_H
